@@ -78,13 +78,13 @@ const (
 //
 // Various implementations were benchmarked with BenchmarkNewInspector:
 //
-//	GOGC=off
+//	                                                                GOGC=off
+//	- type switch					4.9-5.5ms	2.1ms
+//	- binary search over a sorted list of types	5.5-5.9ms	2.5ms
+//	- linear scan, frequency-ordered list		5.9-6.1ms	2.7ms
+//	- linear scan, unordered list			6.4ms		2.7ms
+//	- hash table					6.5ms		3.1ms
 //
-// - type switch				4.9-5.5ms	2.1ms
-// - binary search over a sorted list of types  5.5-5.9ms	2.5ms
-// - linear scan, frequency-ordered list 	5.9-6.1ms	2.7ms
-// - linear scan, unordered list		6.4ms		2.7ms
-// - hash table					6.5ms		3.1ms
 // A perfect hash seemed like overkill.
 //
 // The compiler's switch statement is the clear winner

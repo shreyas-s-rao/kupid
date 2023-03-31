@@ -191,12 +191,13 @@ func isCTL(b byte) bool {
 // HTTP/2 imposes the additional restriction that uppercase ASCII
 // letters are not allowed.
 //
-//	RFC 7230 says:
-//	 header-field   = field-name ":" OWS field-value OWS
-//	 field-name     = token
-//	 token          = 1*tchar
-//	 tchar = "!" / "#" / "$" / "%" / "&" / "'" / "*" / "+" / "-" / "." /
-//	         "^" / "_" / "`" / "|" / "~" / DIGIT / ALPHA
+// RFC 7230 says:
+//
+//	header-field   = field-name ":" OWS field-value OWS
+//	field-name     = token
+//	token          = 1*tchar
+//	tchar = "!" / "#" / "$" / "%" / "&" / "'" / "*" / "+" / "-" / "." /
+//	        "^" / "_" / "`" / "|" / "~" / DIGIT / ALPHA
 func ValidHeaderFieldName(v string) bool {
 	if len(v) == 0 {
 		return false
